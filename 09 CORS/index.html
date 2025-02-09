@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div"></div>
+    <script type="module">
+
+        // type = "module" accepts await without async
+        const div = document.getElementById("div")
+
+        // This is the way to send requests to the server and the response can be visualized
+        const dataResponse = await fetch("http://localhost:3000/0",{method:'GET'})
+        const data = await dataResponse.json()
+        
+        div.innerHTML = data.id+" - "+data.name
+        
+    </script>
+</body>
+</html>
